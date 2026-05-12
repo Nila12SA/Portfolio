@@ -5,6 +5,38 @@ const revealItems = document.querySelectorAll(".reveal");
 const sections = document.querySelectorAll("section[id]");
 const contactForm = document.querySelector(".contact-form");
 const formStatus = document.querySelector(".form-status");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeToggleText = document.querySelector(".theme-toggle-text");
+
+const setTheme = (theme) => {
+  const isDark = theme === "dark";
+
+  document.body.classList.toggle("dark-theme", isDark);
+
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+  }
+
+  if (themeToggleText) {
+    themeToggleText.textContent = isDark ? "Light" : "Dark";
+  }
+};
+
+const savedTheme = localStorage.getItem("portfolio-theme");
+
+if (savedTheme === "dark") {
+  setTheme("dark");
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.body.classList.contains("dark-theme") ? "light" : "dark";
+
+    setTheme(nextTheme);
+    localStorage.setItem("portfolio-theme", nextTheme);
+  });
+}
 
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
