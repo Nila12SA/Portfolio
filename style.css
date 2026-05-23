@@ -14,6 +14,8 @@
   --shadow: 0 22px 55px rgba(82, 52, 103, 0.15);
   --radius: 8px;
   --max-width: 1160px;
+  --body-font: "Lato", Arial, sans-serif;
+  --display-font: "Playfair Display", serif;
 }
 
 * {
@@ -33,7 +35,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   color: var(--text);
-  font-family: "Inter", Arial, sans-serif;
+  font-family: var(--body-font);
   line-height: 1.6;
   background:
     linear-gradient(118deg, rgba(200, 70, 134, 0.12) 0 18%, transparent 18% 100%),
@@ -55,6 +57,12 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display-font);
 }
 
 .site-header {
@@ -268,9 +276,11 @@ main .case-section:nth-of-type(2n + 4)::before {
 
 .hero h1 {
   max-width: 720px;
+  font-family: var(--display-font);
+  font-weight: 400;
   font-size: clamp(3.15rem, 5.75vw, 4.85rem);
   line-height: 1.02;
-  letter-spacing: -0.015em;
+  letter-spacing: 0;
   color: transparent;
   background: linear-gradient(120deg, #2c1b47 0%, #2c1b47 42%, #8a347d 100%);
   -webkit-background-clip: text;
@@ -484,6 +494,8 @@ main .case-section:nth-of-type(2n + 4)::before {
 }
 
 .section-heading h2 {
+  font-family: var(--display-font);
+  font-weight: 400;
   font-size: clamp(2rem, 5vw, 3.25rem);
   line-height: 1.08;
   letter-spacing: 0;
@@ -913,6 +925,8 @@ main .case-section:nth-of-type(2n + 4)::before {
 
 .case-hero-copy h1 {
   max-width: 720px;
+  font-family: var(--display-font);
+  font-weight: 400;
   font-size: clamp(2.1rem, 4.6vw, 4rem);
   line-height: 1.08;
   letter-spacing: 0;
@@ -1038,6 +1052,16 @@ main .case-section:nth-of-type(2n + 4)::before {
 .case-summary h2 {
   margin-bottom: 12px;
   line-height: 1.25;
+}
+
+.case-card h2,
+.case-summary h2,
+.petal-showcase h2,
+.figma-panel h2,
+.aura-screen h2,
+.aura-presentation h2 {
+  font-family: var(--display-font);
+  font-weight: 400;
 }
 
 .case-card p,
@@ -1262,6 +1286,8 @@ main .case-section:nth-of-type(2n + 4)::before {
 .aura-hero-copy h1 {
   margin: 10px 0 18px;
   color: transparent;
+  font-family: var(--display-font);
+  font-weight: 400;
   font-size: clamp(2.75rem, 5.9vw, 5.2rem);
   line-height: 1.04;
   letter-spacing: 0;
@@ -1882,6 +1908,8 @@ main .case-section:nth-of-type(2n + 4)::before {
 .tripzy-hero-copy h1 {
   max-width: 720px;
   margin-top: 12px;
+  font-family: var(--display-font);
+  font-weight: 400;
   font-size: clamp(2.1rem, 4.6vw, 4rem);
   line-height: 1.08;
 }
@@ -2624,7 +2652,7 @@ main .case-section:nth-of-type(2n + 4)::before {
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:var(--body-font);
 }
 
 body{
@@ -2946,12 +2974,33 @@ body.dark-theme .eyebrow {
   color: #f5cad6;
 }
 
+body.dark-theme,
+body.dark-theme p,
+body.dark-theme h3,
+body.dark-theme strong,
+body.dark-theme label,
+body.dark-theme small {
+  color: var(--text);
+}
+
 body.dark-theme .hero-text,
 body.dark-theme .project-card p,
 body.dark-theme .about-panel p,
 body.dark-theme .contact-card small,
-body.dark-theme .case-list {
+body.dark-theme .case-list,
+body.dark-theme .contact-form input::placeholder,
+body.dark-theme .contact-form textarea::placeholder {
   color: var(--muted);
+}
+
+body.dark-theme .about::before,
+body.dark-theme .skills::before,
+body.dark-theme .projects::before,
+body.dark-theme .process::before,
+body.dark-theme .contact::before {
+  background:
+    linear-gradient(135deg, rgba(200, 70, 134, 0.08), transparent 42%),
+    linear-gradient(180deg, rgba(7, 9, 22, 0.88), rgba(18, 23, 45, 0.92));
 }
 
 body.dark-theme .hero-stats span,
@@ -2980,6 +3029,19 @@ body.dark-theme .contact-form label {
   color: #ffffff;
 }
 
+body.dark-theme .skill-card,
+body.dark-theme .hero-stats span,
+body.dark-theme .project-link,
+body.dark-theme .form-status {
+  color: #f5cad6;
+}
+
+body.dark-theme .btn-secondary {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+}
+
 body.dark-theme .contact-form input,
 body.dark-theme .contact-form textarea {
   color: #ffffff;
@@ -2990,6 +3052,94 @@ body.dark-theme .contact-form textarea {
 body.dark-theme .footer {
   background: rgba(8, 11, 26, 0.82);
   border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .case-hero-copy h1,
+body.dark-theme .tripzy-hero-copy h1,
+body.dark-theme .aura-hero-copy h1 {
+  background: linear-gradient(120deg, #ffffff 0%, #f5cad6 46%, #b9c8ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.dark-theme .case-hero-copy p:not(.eyebrow),
+body.dark-theme .tripzy-hero-copy p:not(.eyebrow),
+body.dark-theme .aura-hero-copy p:not(.aura-kicker),
+body.dark-theme .case-card p,
+body.dark-theme .detail-item p,
+body.dark-theme .case-summary p:not(.eyebrow),
+body.dark-theme .figma-panel p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+body.dark-theme .case-section::before,
+body.dark-theme main .case-section:nth-of-type(2n + 3)::before,
+body.dark-theme main .case-section:nth-of-type(2n + 4)::before,
+body.dark-theme .tripzy-hero::before,
+body.dark-theme .tripzy-showcase-section::before,
+body.dark-theme .tripzy-process-section::before {
+  background:
+    linear-gradient(135deg, rgba(200, 70, 134, 0.08), transparent 42%),
+    linear-gradient(180deg, rgba(7, 9, 22, 0.9), rgba(18, 23, 45, 0.94));
+}
+
+body.dark-theme .aura-page {
+  --aura-text: #f8fbff;
+  --aura-muted: #c4bdd1;
+  --aura-border: rgba(255, 255, 255, 0.13);
+  color: var(--aura-text);
+  background:
+    linear-gradient(118deg, rgba(200, 70, 134, 0.12) 0 18%, transparent 18% 100%),
+    linear-gradient(26deg, transparent 0 62%, rgba(93, 131, 242, 0.12) 62% 100%),
+    linear-gradient(135deg, #070916 0%, #14192f 48%, #21182c 100%);
+}
+
+body.dark-theme .case-card,
+body.dark-theme .detail-item,
+body.dark-theme .case-summary,
+body.dark-theme .figma-panel,
+body.dark-theme .aura-card,
+body.dark-theme .aura-flow,
+body.dark-theme .aura-system-panel,
+body.dark-theme .aura-presentation,
+body.dark-theme .tripzy-process-step {
+  border-color: rgba(255, 255, 255, 0.13);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.05)),
+    #12172d;
+  box-shadow: var(--shadow);
+}
+
+body.dark-theme .case-card h2,
+body.dark-theme .detail-item h3,
+body.dark-theme .case-summary h2,
+body.dark-theme .figma-panel h2,
+body.dark-theme .aura-card h2,
+body.dark-theme .aura-card h3,
+body.dark-theme .aura-flow h3,
+body.dark-theme .aura-system-panel h3,
+body.dark-theme .aura-presentation h2 {
+  color: #ffffff;
+}
+
+body.dark-theme .case-number,
+body.dark-theme .process-card span,
+body.dark-theme .tripzy-process-step span,
+body.dark-theme .aura-flow span {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8a347d, #c84686 58%, #5d83f2);
+}
+
+body.dark-theme .petal-preview,
+body.dark-theme .tripzy-hero-visual,
+body.dark-theme .petal-hero-screenshot,
+body.dark-theme .design-preview-image {
+  border-color: rgba(255, 255, 255, 0.13);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04)),
+    #12172d;
+  box-shadow: var(--shadow);
 }
 
 @media (max-width: 720px) {
